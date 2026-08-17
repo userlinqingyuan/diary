@@ -13,23 +13,28 @@
             box-sizing: border-box;
         }
         body {
-               background-color: #f5f0e6;
-               background-image: 
-                   url(https://www.transparenttextures.com/patterns/paper-fibers.png);
-                 font-family: 'Zhi Mang Xing', cursive, 'Georgia', serif;
-               min-height: 100vh;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-               padding: 30px;
+            background-color: #f5f0e6;
+            background-image: 
+                url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1600),
+                url(https://www.transparenttextures.com/patterns/paper-fibers.png);
+            background-size: cover, auto;
+            background-blend-mode: multiply, normal;
+            font-family: 'Zhi Mang Xing', cursive, 'Georgia', serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
              }
 
         .container {
-            background: rgba(255, 255, 247, 0.92);
-            backdrop-filter: blur(2px);
+            background: rgba(255, 252, 245, 0.85);
+            backdrop-filter: blur(4px);
             padding: 40px 45px 50px;
             border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 
+                0 8px 30px rgba(0, 0, 0, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 0.6);
             border: 1px solid #e5d9c4;
             position: relative;
             transition: box-shadow 0.3s;
