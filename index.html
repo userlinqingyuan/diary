@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📔 日记</title>
+    <!-- 中文字体 -->
+    <link href="https://fonts.loli.net/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <!-- 英文字体 -->
+    <link href="https://fonts.loli.net/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f0e6;
+            background-image: url(https://www.transparenttextures.com/patterns/paper-fibers.png);
+            font-family: 'Nothing You Could Do', 'Ma Shan Zheng', cursive, serif;
+            text-shadow: 0.6px 0.6px 0px rgba(0,0,0,0.12);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .cover {
+            max-width: 680px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.88);
+            backdrop-filter: blur(4px);
+            padding: 50px 45px 55px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5d9c4;
+            text-align: center;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+
+        .cover:hover {
+            box-shadow: 0 16px 56px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 装饰角标 */
+        .cover::before {
+            content: "❧";
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 2.2em;
+            color: #dac09a;
+            opacity: 0.5;
+            font-family: serif;
+        }
+        .cover::after {
+            content: "❧";
+            position: absolute;
+            bottom: 16px;
+            left: 24px;
+            font-size: 2.2em;
+            color: #dac09a;
+            opacity: 0.5;
+            font-family: serif;
+        }
+
+        /* 装饰线 */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #dac09a;
+            margin: 16px auto 20px;
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 3.2em;
+            font-weight: 400;
+            color: #4a3728;
+            letter-spacing: 6px;
+            margin-bottom: 4px;
+        }
+
+        .sub-en {
+            font-family: 'Nothing You Could Do', cursive;
+            font-size: 1.3em;
+            color: #8a7a66;
+            letter-spacing: 2px;
+        }
+
+        .sub-zh {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.1em;
+            color: #b09b84;
+            margin-top: 2px;
+            letter-spacing: 3px;
+        }
+
+        .entry {
+            margin-top: 30px;
+            padding: 16px 20px;
+            background: #fcf9f3;
+            border-left: 4px solid #dac09a;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+            font-size: 1.15em;
+            color: #4a3728;
+            transition: background 0.2s;
+        }
+        .entry:hover {
+            background: #f8f1e6;
+        }
+        .entry a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .entry a .arrow {
+            font-size: 1.4em;
+            color: #b09b84;
+            transition: transform 0.2s;
+        }
+        .entry a:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .footer-note {
+            margin-top: 35px;
+            font-size: 0.85em;
+            color: #b09b84;
+            border-top: 1px solid #e5d9c4;
+            padding-top: 18px;
+            font-family: 'Nothing You Could Do', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .cover { padding: 30px 20px 35px; }
+            h1 { font-size: 2.4em; letter-spacing: 4px; }
+            .sub-en { font-size: 1.0em; }
+            .entry { font-size: 1.0em; }
+            .cover::before, .cover::after { font-size: 1.6em; top: 12px; right: 16px; bottom: 12px; left: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <div class="divider"></div>
+        <h1><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#785e45"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm0-80h480v-640h-80v280l-100-60-100 60v-280H240v640Zm0 0v-640 640Zm200-360 100-60 100 60-100-60-100 60Z"/></svg> 日记</h1>
+        <div class="sub-en">— daily pages —</div>
+        <div class="sub-zh">每次落笔都是一次抵达</div>
+        <div class="divider"></div>
+
+        <!-- 入口链接：指向你的样稿目录或具体日记 -->
+        <div class="entry">
+            <a href="https://userlinqingyuan.github.io/diary/sample/">
+                <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#785e45"><path d="M440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6q47 0 91.5 10.5T440-278Zm40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q74 0 126 17t112 52q11 6 16.5 14t5.5 21v418q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-481q15 5 29.5 11t28.5 14q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59Zm140-240v-440l120-40v440l-120 40Zm-340-99Z"/></svg> 查看所有样稿</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <!-- 你可以在这里继续添加更多入口 -->
+        <!--
+        <div class="entry">
+            <a href="https://userlinqingyuan.github.io/diary/cornell/">
+                <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#785e45"><path d="M440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6q47 0 91.5 10.5T440-278Zm40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q74 0 126 17t112 52q11 6 16.5 14t5.5 21v418q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-481q15 5 29.5 1１t28.5 １４q１１ ５ １６.５ １５t５.５ ２１v４８２q０ ２３－１９.５ ３５t－４０.５ １q－３７－２０－７７.５－３１T７００－２４０q－６０ ０－１１６ ２１t－１０４ ５９Zm１４０－２４０v－４４０l１２０－４０v４４０l－１２０ ４０Zm－３４０－９９Z"/></svg> 康奈尔 · 复古横线</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+        -->
+
+        <div class="footer-note">
+            ✎ 每一页都是练习
+        </div>
+    </div>
+</body>
+</html>
