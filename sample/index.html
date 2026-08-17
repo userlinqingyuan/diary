@@ -1,15 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>日记样稿目录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📖 日记样稿目录</title>
+    <!-- 引入 Google 手写字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f0e6;  /* 羊皮纸底色 */
+            font-family: 'Zhi Mang Xing', cursive, 'Georgia', serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: #fffff7;
+            padding: 40px 45px 50px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5d9c4;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+        .container:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 400;
+            color: #4a3728;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            border-bottom: 2px dashed #dac09a;
+            padding-bottom: 18px;
+        }
+        .sub {
+            text-align: center;
+            color: #8a7a66;
+            font-size: 1.1em;
+            margin-top: -6px;
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 18px 0;
+            padding: 14px 22px;
+            background: #fcf9f3;
+            border-left: 6px solid #dac09a;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+        li:hover {
+            background: #f8f1e6;
+            border-left-color: #b48b5a;
+            transform: translateX(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        li a {
+            text-decoration: none;
+            font-size: 1.6em;
+            color: #4a3728;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 400;
+        }
+        li a .emoji {
+            font-size: 1.2em;
+            line-height: 1;
+        }
+        li a .label {
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.2s;
+        }
+        li a:hover .label {
+            border-bottom-color: #b48b5a;
+        }
+        /* 占位条目（未来添加） */
+        li.placeholder {
+            opacity: 0.5;
+            border-left-color: #ccc;
+            background: #f8f6f2;
+        }
+        li.placeholder a {
+            color: #999;
+            cursor: default;
+            pointer-events: none;
+        }
+        li.placeholder a .label {
+            border-bottom: none;
+        }
+
+        .footer-note {
+            margin-top: 35px;
+            text-align: center;
+            font-size: 0.95em;
+            color: #b09b84;
+            border-top: 1px solid #e5d9c4;
+            padding-top: 20px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+        }
+        .footer-note span {
+            background: #f5f0e6;
+            padding: 0 12px;
+        }
+
+        /* 简单响应式 */
+        @media (max-width: 600px) {
+            .container { padding: 25px 20px; }
+            h1 { font-size: 2.2em; }
+            li a { font-size: 1.3em; }
+        }
+    </style>
 </head>
 <body>
-    <h1>📖 日记样稿目录</h1>
-    <ul>
-        <li><a href="cornell/">康奈尔笔记法样式</a></li>
-        <!-- 未来你在这里添加新的样稿 -->
-        <!-- <li><a href="minimalist/">极简样式</a></li> -->
-    </ul>
+    <div class="container">
+        <h1>📖 日记样稿</h1>
+        <div class="sub">—— 每一次落笔都是一次尝试 ——</div>
+
+        <ul>
+            <!-- 现有的样稿 -->
+            <li>
+                <a href="cornell/">
+                    <span class="emoji">📝</span>
+                    <span class="label">康奈尔笔记法 · 复古横线</span>
+                </a>
+            </li>
+
+            <!-- 未来添加新样稿时，复制下面这行，改掉 href 和文字即可 -->
+            <!--
+            <li>
+                <a href="minimalist/">
+                    <span class="emoji">✨</span>
+                    <span class="label">极简白 · 纯文字</span>
+                </a>
+            </li>
+            -->
+
+            <!-- 占位示例（展示未来可能的样子，可删除） -->
+            <li class="placeholder">
+                <a href="#">
+                    <span class="emoji">🌱</span>
+                    <span class="label">更多样稿筹备中…</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="footer-note">
+            <span>✎ 每篇样稿都独立为一个子文件夹</span>
+        </div>
+    </div>
 </body>
 </html>
