@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>owl 日记</title>
+    <!-- 中文字体 -->
+    <link href="https://fonts.loli.net/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <!-- 英文字体 -->
+    <link href="https://fonts.loli.net/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a163d;
+            background-image: 
+                url(https://www.transparenttextures.com/patterns/aged-paper.png);
+            background-blend-mode: overlay;
+            font-family: 'Nothing You Could Do', 'Ma Shan Zheng', cursive, serif;
+            text-shadow: 0.6px 0.6px 0px rgba(0,0,0,0.3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .diary-card {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(20, 18, 40, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 30px 35px 40px;
+            border-radius: 20px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,215,0,0.08);
+            border: 1px solid rgba(180, 160, 80, 0.3);
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+
+        .diary-card:hover {
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 装饰 · 猫头鹰元素 */
+        .owl-deco {
+            text-align: center;
+            font-size: 2.4em;
+            letter-spacing: 8px;
+            color: rgba(200, 180, 80, 0.5);
+            margin-bottom: 6px;
+        }
+        .owl-deco span {
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        /* 横线格背景 — 换成了深色底 + 淡金线 */
+        .lined {
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 1.65em,
+                rgba(200, 180, 80, 0.2) 1.65em,
+                rgba(200, 180, 80, 0.25) 1.8em
+            );
+            line-height: 1.8em;
+            padding: 20px 20px 10px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(200, 180, 80, 0.15);
+            background-color: rgba(20, 18, 40, 0.4);
+        }
+
+        /* 两栏布局 */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 24px;
+            margin-bottom: 25px;
+        }
+
+        /* 左侧日期栏 — 淡黄色文字 */
+        .date-col {
+            border-right: 2px solid rgba(200, 180, 80, 0.3);
+            padding-right: 18px;
+            text-align: right;
+            font-family: 'Ma Shan Zheng', cursive;
+            color: #e8d88a;
+        }
+        .date-col .day {
+            font-size: 1.8em;
+            font-weight: 400;
+            color: #f5e68a;
+            letter-spacing: 2px;
+        }
+        .date-col .meta {
+            color: #c8b86a;
+            font-size: 1.0em;
+        }
+        .date-col .small {
+            font-size: 0.85em;
+            color: #9a8a5a;
+        }
+        .date-col .moon {
+            font-size: 1.4em;
+            margin-top: 6px;
+            color: #e8d88a;
+        }
+
+        /* 右侧内容栏 — 淡黄色文字 */
+        .content-col {
+            padding: 0 6px;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 1.15em;
+            color: #f0e6b0;
+        }
+        .content-col p {
+            margin: 0;
+        }
+
+        /* 底部总结栏 — 淡黄色文字 */
+        .summary-bar {
+            border-top: 2px solid rgba(200, 180, 80, 0.25);
+            padding-top: 18px;
+            padding-left: 154px;
+            font-family: 'Ma Shan Zheng', cursive;
+            color: #d8c88a;
+            font-style: italic;
+        }
+        .summary-bar .title {
+            font-weight: bold;
+            color: #f0e080;
+            font-style: normal;
+        }
+
+        /* 猫头鹰脚印花纹（装饰分隔） */
+        .owl-track {
+            text-align: center;
+            font-size: 1.2em;
+            letter-spacing: 12px;
+            color: rgba(200, 180, 80, 0.2);
+            margin: 6px 0 2px 0;
+        }
+
+        /* 底部装饰 */
+        .footer-deco {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.8em;
+            color: rgba(200, 180, 80, 0.3);
+            letter-spacing: 2px;
+            font-family: 'Nothing You Could Do', cursive;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 16px; }
+            .diary-card { padding: 20px; }
+            .grid-2col { grid-template-columns: 1fr; gap: 10px; }
+            .date-col { border-right: none; border-bottom: 2px solid rgba(200, 180, 80, 0.2); padding-right: 0; padding-bottom: 12px; text-align: left; }
+            .summary-bar { padding-left: 0; }
+            .date-col .day { font-size: 1.4em; }
+            .owl-deco { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="diary-card">
+        <!-- 猫头鹰装饰 -->
+        <div class="owl-deco">
+            <span>🦉</span>
+            <span>✦</span>
+            <span>🦉</span>
+            <span>✦</span>
+            <span>🦉</span>
+        </div>
+
+        <div class="lined">
+            <!-- 两栏布局 -->
+            <div class="grid-2col">
+                <!-- 左侧日期 -->
+                <div class="date-col">
+                    <div class="day">八月十八日</div>
+                    <div class="meta">星期三</div>
+                    <div class="meta">夜 · 月渐盈</div>
+                    <div class="small">第 230 天</div>
+                    <div class="moon">🌙</div>
+                </div>
+
+                <!-- 右侧正文 -->
+                <div class="content-col">
+                    <p>夜里坐在窗边，猫头鹰在远处的树上低鸣。</p>
+                    <p>它的声音像旧书页翻动，像被时间浸泡过的低语。</p>
+                    <p>我在写日记，它停在枝头，偶尔转动头颅。</p>
+                    <p>好像我们都在做同一件事：观察，然后沉默地记住。</p>
+                </div>
+            </div>
+
+            <!-- 猫头鹰脚印分隔线 -->
+            <div class="owl-track">· · · · ·</div>
+
+            <!-- 底部总结栏 -->
+            <div class="summary-bar">
+                <p class="title">🦉 夜间的备忘：</p>
+                <p>• 猫头鹰的眼睛在月光下是金色的</p>
+                <p>• 夜晚的安静比白天更厚，像一本合上的书</p>
+                <p>• 有些东西只在夜里才能被写出来</p>
+            </div>
+        </div>
+
+        <div class="footer-deco">
+            ✦ nightly pages ✦
+        </div>
+    </div>
+</body>
+</html>
