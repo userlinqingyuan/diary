@@ -7,8 +7,14 @@
     <!-- 中文字体 -->
     <link href="https://fonts.loli.net/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <!-- 英文字体（放在下方，顺序不影响加载） -->
-    <link href="https://fonts.loli.net/css2?family=Playwrite+New+Zealand&display=swap" rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Playwrite+NZ&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: '迫真打字油印体';   /* 本地字体 */
+            src: url('fonts/RealTypeWriter.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #f0ede8;
@@ -16,7 +22,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Playwrite New Zealand', 'Ma Shan Zheng', cursive, serif; /* 应用手写体 */
+            font-family: 'Playwrite NZ', 'Ma Shan Zheng', cursive, serif; /* 应用手写体 */
             padding: 20px;
         }
         .diary-card {
@@ -41,6 +47,7 @@
             border-right: 2px solid #ff6b6b;
             padding-right: 15px;
             text-align: right;
+            font-family: '迫真打字油印体', 'Ma Shan Zheng', cursive, serif;
         }
         .date-column p { margin: 0; }
         .date-column .day { font-weight: bold; color: #ff6b6b; }
@@ -68,7 +75,8 @@
     <div class="diary-card">
         <div class="diary-grid">
             <div class="date-column">
-                <p class="day">2026年8月16日</p>
+                <p class="day">2026年</p>
+                <p class="meta">8月16日</p>
                 <p class="meta">星期日</p>
                 <p class="meta">丙午年  七月初四</p>
                 <p class="small">第292天</p>
@@ -86,9 +94,8 @@
         </div>
         <div class="summary-bar">
             <p class="title">💭 今日小结：</p>
-            <p>• 在292天后这个网页终于有了雏形</p>
-            <p>• 弗耽真牛逼</p>
-            <p>•弗耽玩去了拜拜！</p>
+            <p>•神从创造中找到他自己。</p>
+            <p>•God finds himself by creating.</p>
         </div>
     </div>
 </body>
